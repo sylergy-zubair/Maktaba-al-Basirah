@@ -1,0 +1,105 @@
+.pushToTalkContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pushToTalkButton {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 2px solid #4a5568;
+  border-radius: 0.5rem;
+  background-color: #f7fafc;
+  color: #2d3748;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.pushToTalkButton:hover:not(:disabled) {
+  background-color: #edf2f7;
+  border-color: #718096;
+}
+
+.pushToTalkButton:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.pushToTalkButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pushToTalkButton.idle {
+  border-color: #4a5568;
+  background-color: #f7fafc;
+}
+
+.pushToTalkButton.listening {
+  border-color: #3182ce;
+  background-color: #bee3f8;
+  animation: pulse 1.5s ease-in-out infinite;
+  color: #1a365d;
+}
+
+.pushToTalkButton.processing {
+  border-color: #38a169;
+  background-color: #c6f6d5;
+  color: #22543d;
+}
+
+.pushToTalkButton.error {
+  border-color: #e53e3e;
+  background-color: #fed7d7;
+  color: #742a2a;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(49, 130, 206, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(49, 130, 206, 0);
+  }
+}
+
+.micIcon {
+  font-size: 1.2rem;
+}
+
+.spinner {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.recognizedText {
+  font-size: 0.875rem;
+  color: #4a5568;
+  font-style: italic;
+  text-align: center;
+  min-height: 1.5rem;
+}
+
+.errorMessage {
+  font-size: 0.875rem;
+  color: #e53e3e;
+  text-align: center;
+  min-height: 1.5rem;
+  font-weight: 500;
+}

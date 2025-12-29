@@ -1,0 +1,54 @@
+.audioPlayer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--brutal-spacing-xs);
+}
+
+.playButton {
+  padding: var(--brutal-spacing-sm) var(--brutal-spacing-md);
+  font-size: 0.875rem;
+  background: var(--brutal-black);
+  color: var(--brutal-white);
+  border: var(--brutal-border-width) solid var(--brutal-black);
+  border-radius: var(--brutal-border-radius);
+  cursor: pointer;
+  font-weight: var(--brutal-font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  min-width: 140px;
+  box-shadow: var(--brutal-shadow-offset) var(--brutal-shadow-offset) 0 0 var(--brutal-black);
+}
+
+.playButton:active:not(:disabled) {
+  transform: translate(var(--brutal-shadow-offset), var(--brutal-shadow-offset));
+  box-shadow: 0 0 0 0 var(--brutal-black);
+}
+
+.playButton:hover:not(:disabled) {
+  background: var(--brutal-white);
+  color: var(--brutal-black);
+}
+
+.playButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: var(--brutal-gray);
+  color: var(--brutal-black);
+}
+
+.errorMessage {
+  color: var(--brutal-error);
+  padding: var(--brutal-spacing-xs) var(--brutal-spacing-sm);
+  margin: var(--brutal-spacing-xs) 0;
+  border: var(--brutal-border-width) solid var(--brutal-error);
+  border-radius: var(--brutal-border-radius);
+  background: var(--brutal-white);
+  font-size: 0.875rem;
+  font-weight: var(--brutal-font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: var(--brutal-shadow-offset) var(--brutal-shadow-offset) 0 0 var(--brutal-error);
+}
+

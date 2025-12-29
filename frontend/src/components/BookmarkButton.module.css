@@ -1,0 +1,39 @@
+.bookmarkButton {
+  padding: var(--brutal-spacing-xs) var(--brutal-spacing-md);
+  font-size: 0.875rem;
+  background: var(--brutal-white);
+  color: var(--brutal-black);
+  border: var(--brutal-border-width) solid var(--brutal-black);
+  border-radius: var(--brutal-border-radius);
+  cursor: pointer;
+  font-weight: var(--brutal-font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  min-width: 140px;
+  box-shadow: var(--brutal-shadow-offset) var(--brutal-shadow-offset) 0 0 var(--brutal-black);
+}
+
+.bookmarkButton:active:not(:disabled) {
+  transform: translate(var(--brutal-shadow-offset), var(--brutal-shadow-offset));
+  box-shadow: 0 0 0 0 var(--brutal-black);
+}
+
+.bookmarkButton:hover:not(:disabled) {
+  background: var(--brutal-black);
+  color: var(--brutal-white);
+}
+
+.bookmarkButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: var(--brutal-gray);
+  color: var(--brutal-black);
+}
+
+.bookmarkButton[aria-pressed="true"] {
+  background: var(--brutal-black);
+  color: var(--brutal-white);
+  box-shadow: var(--brutal-shadow-offset) var(--brutal-shadow-offset) 0 0 var(--brutal-accent);
+}
+

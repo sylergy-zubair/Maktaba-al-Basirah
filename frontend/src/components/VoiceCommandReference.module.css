@@ -1,0 +1,163 @@
+.referenceContainer {
+  padding: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+}
+
+.languageFilter {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filterButton {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: #f7fafc;
+  color: #4a5568;
+  border: 1px solid #cbd5e0;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filterButton:hover {
+  background-color: #edf2f7;
+  border-color: #a0aec0;
+}
+
+.filterButton.active {
+  background-color: #3182ce;
+  color: white;
+  border-color: #3182ce;
+}
+
+.instructions {
+  background-color: #ebf8ff;
+  border: 1px solid #90cdf4;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.instructions p {
+  margin: 0;
+  color: #2c5282;
+  line-height: 1.5;
+}
+
+.commandSection {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.category {
+  margin-bottom: 2rem;
+}
+
+.categoryTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 1rem;
+}
+
+.commandsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.command {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+}
+
+.commandAction {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 1rem;
+}
+
+.commandPhrases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.phrase {
+  padding: 0.25rem 0.75rem;
+  background-color: white;
+  border: 1px solid #cbd5e0;
+  border-radius: 0.25rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.875rem;
+  color: #2d3748;
+}
+
+.tips {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #fffaf0;
+  border: 1px solid #fbd38d;
+  border-radius: 0.5rem;
+}
+
+.tipsTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #744210;
+  margin-bottom: 0.75rem;
+}
+
+.tipsList {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #744210;
+}
+
+.tipsList li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .referenceContainer {
+    padding: 1rem;
+  }
+}
+

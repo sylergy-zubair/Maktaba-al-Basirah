@@ -1,0 +1,152 @@
+.main {
+  max-width: 600px;
+  margin: var(--brutal-spacing-xl) auto;
+  padding: var(--brutal-spacing-xl);
+  border: var(--brutal-border-width) solid var(--brutal-black);
+  background: var(--brutal-white);
+  box-shadow: var(--brutal-shadow-offset) var(--brutal-shadow-offset) 0 0 var(--brutal-black);
+}
+
+.main h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--brutal-spacing-xl);
+  text-align: center;
+  color: var(--brutal-black);
+  font-weight: var(--brutal-font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: var(--brutal-border-width) solid var(--brutal-black);
+  padding-bottom: var(--brutal-spacing-sm);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--brutal-spacing-md);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--brutal-spacing-xs);
+}
+
+.formGroup label {
+  font-weight: var(--brutal-font-weight-bold);
+  color: var(--brutal-black);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.875rem;
+}
+
+.formGroup input {
+  padding: var(--brutal-spacing-sm);
+  font-size: 1rem;
+  border: var(--brutal-border-width) solid var(--brutal-black);
+  border-radius: var(--brutal-border-radius);
+  background: var(--brutal-white);
+  color: var(--brutal-black);
+  font-weight: 400;
+  transition: box-shadow 0.1s ease;
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.formGroup input:focus {
+  outline: none;
+  box-shadow: var(--brutal-shadow-offset) var(--brutal-shadow-offset) 0 0 var(--brutal-accent);
+}
+
+.formGroup input::placeholder {
+  color: var(--brutal-black);
+  opacity: 0.5;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.875rem;
+}
+
+.submitButton {
+  padding: var(--brutal-spacing-sm) var(--brutal-spacing-lg);
+  font-size: 1rem;
+  background: var(--brutal-black);
+  color: var(--brutal-white);
+  border: var(--brutal-border-width) solid var(--brutal-black);
+  border-radius: var(--brutal-border-radius);
+  cursor: pointer;
+  font-weight: var(--brutal-font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  box-shadow: var(--brutal-shadow-offset) var(--brutal-shadow-offset) 0 0 var(--brutal-black);
+  margin-top: var(--brutal-spacing-xs);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translate(var(--brutal-shadow-offset), var(--brutal-shadow-offset));
+  box-shadow: 0 0 0 0 var(--brutal-black);
+}
+
+.submitButton:hover:not(:disabled) {
+  background: var(--brutal-white);
+  color: var(--brutal-black);
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--brutal-gray);
+  color: var(--brutal-black);
+}
+
+.error {
+  padding: var(--brutal-spacing-md);
+  background: var(--brutal-white);
+  border: var(--brutal-border-width) solid var(--brutal-error);
+  border-radius: var(--brutal-border-radius);
+  color: var(--brutal-error);
+  font-weight: var(--brutal-font-weight-medium);
+  box-shadow: var(--brutal-shadow-offset) var(--brutal-shadow-offset) 0 0 var(--brutal-error);
+}
+
+.links {
+  margin-top: var(--brutal-spacing-xl);
+  text-align: center;
+  color: var(--brutal-black);
+  font-weight: var(--brutal-font-weight-medium);
+  border-top: var(--brutal-border-width) solid var(--brutal-black);
+  padding-top: var(--brutal-spacing-md);
+}
+
+.links a {
+  color: var(--brutal-black);
+  text-decoration: none;
+  border-bottom: 2px solid var(--brutal-black);
+  font-weight: var(--brutal-font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background 0.1s ease;
+  padding: 2px 4px;
+}
+
+.links a:hover {
+  background: var(--brutal-black);
+  color: var(--brutal-white);
+}
+
+.backLink {
+  display: inline-block;
+  margin-top: var(--brutal-spacing-md);
+  color: var(--brutal-black);
+  text-decoration: none;
+  border-bottom: 2px solid var(--brutal-black);
+  font-weight: var(--brutal-font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 4px;
+  transition: background 0.1s ease;
+}
+
+.backLink:hover {
+  background: var(--brutal-black);
+  color: var(--brutal-white);
+}
+
