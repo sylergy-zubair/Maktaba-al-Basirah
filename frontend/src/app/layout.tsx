@@ -12,7 +12,7 @@ const notoSansArabic = Noto_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  title: 'Shamela TTS Reader - Accessible Book Reading',
+  title: 'Maktabah Al-Basīrah - Accessible Book Reading',
   description: 'Accessible book reading platform for blind users with TTS support',
 };
 

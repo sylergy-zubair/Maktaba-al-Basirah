@@ -7,6 +7,7 @@ import { booksApi, bookmarksApi, ttsApi, Unit, Book } from '@/lib/api';
 import AudioPlayer, { AudioPlayerRef } from '@/components/AudioPlayer';
 import BookmarkButton from '@/components/BookmarkButton';
 import PushToTalkButton from '@/components/PushToTalkButton';
+import UserGuide from '@/components/UserGuide';
 import { useVoiceControl } from '@/hooks/useVoiceControl';
 import { isVoiceControlAvailable } from '@/utils/voiceControl';
 import styles from './page.module.css';
@@ -26,6 +27,7 @@ export default function BookReader() {
   const [error, setError] = useState<string | null>(null);
   const [bookmark, setBookmark] = useState<{ unitId: number; unitIndex: number } | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isGuideOpen, setIsGuideOpen] = useState(false);
 
   const unitRef = useRef<HTMLDivElement>(null);
   const audioPlayerRef = useRef<AudioPlayerRef>(null);
@@ -211,6 +213,12 @@ export default function BookReader() {
             <button onClick={() => router.push('/')} aria-label="Back to book list">
               ← Back to Books
             </button>
+            <button 
+              onClick={() => setIsGuideOpen(true)} 
+              aria-label="User Guide"
+            >
+              User Guide
+            </button>
             <button onClick={() => router.push('/settings')} aria-label="Settings">
               Settings
             </button>
@@ -279,6 +287,11 @@ export default function BookReader() {
           <p>Unit {currentIndex} of {totalUnits}</p>
         </div>
       </article>
+
+      <UserGuide 
+        isOpen={isGuideOpen} 
+        onClose={() => setIsGuideOpen(false)} 
+      />
     </main>
   );
 }

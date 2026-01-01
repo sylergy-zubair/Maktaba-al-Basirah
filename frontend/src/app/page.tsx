@@ -6,6 +6,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { booksApi, Book } from '@/lib/api';
 import Link from 'next/link';
 import { speakText, stopSpeaking } from '@/utils/browserTTS';
+import UserGuide from '@/components/UserGuide';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [focusedBookIndex, setFocusedBookIndex] = useState<number | null>(null);
+  const [isGuideOpen, setIsGuideOpen] = useState(false);
 
   useEffect(() => {
     // Redirect to login if not authenticated
@@ -163,12 +165,20 @@ export default function Home() {
       </a>
       
       <header role="banner" className={styles.header}>
-        <h1>Shamela TTS Reader</h1>
+        <h1>Maktabah Al-Basīrah</h1>
         <nav role="navigation" aria-label="Main navigation" className={styles.nav}>
           {isAuthenticated && (
-            <Link href="/settings" aria-label="Settings">
-              Settings
-            </Link>
+            <>
+              <button 
+                onClick={() => setIsGuideOpen(true)} 
+                aria-label="User Guide"
+              >
+                User Guide
+              </button>
+              <Link href="/settings" aria-label="Settings">
+                Settings
+              </Link>
+            </>
           )}
           {isAuthenticated ? (
             <button onClick={logout} aria-label="Logout">
@@ -237,6 +247,11 @@ export default function Home() {
           </ul>
         )}
       </section>
+
+      <UserGuide 
+        isOpen={isGuideOpen} 
+        onClose={() => setIsGuideOpen(false)} 
+      />
     </main>
   );
 }

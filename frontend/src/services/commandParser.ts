@@ -28,7 +28,7 @@ const ENGLISH_COMMANDS = {
  * Bengali command vocabulary
  */
 const BENGALI_COMMANDS = {
-  play: ['চালাও', 'চালান', 'শুরু কর', 'play'],
+  play: ['চালাও', 'চালান', 'শুরু কর', 'প্লে', 'play'],
   pause: ['থামাও', 'থামান', 'বন্ধ কর', 'pause'],
   next: ['পরবর্তী', 'আগামী', 'সামনে', 'next'],
   previous: ['পূর্ববর্তী', 'পিছনে', 'গত', 'previous'],

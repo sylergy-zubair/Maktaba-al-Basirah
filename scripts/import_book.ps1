@@ -128,12 +128,30 @@ if (-not (Test-Path $rawJsonFile)) {
 $fileInfo = Get-Item $rawJsonFile -ErrorAction Stop
 $fileSize = $fileInfo.Length
 
+# Check if file is empty or contains only empty JSON array
+$isEmpty = $false
 if ($fileSize -eq 0) {
+    $isEmpty = $true
+} else {
+    # Check if file contains only empty JSON array
+    try {
+        $fileContent = Get-Content $rawJsonFile -Raw -ErrorAction Stop
+        $jsonContent = $fileContent.Trim()
+        if ($jsonContent -eq "[]" -or $jsonContent -eq "{}" -or $jsonContent.Length -lt 10) {
+            $isEmpty = $true
+        }
+    } catch {
+        # If we can't read it, treat as empty
+        $isEmpty = $true
+    }
+}
+
+if ($isEmpty) {
     Write-Host "" -ForegroundColor Red
-    Write-Host "  ✗ Download completed but file is empty (0 bytes)" -ForegroundColor Red
+    Write-Host "  ✗ Download completed but file is empty or contains no data" -ForegroundColor Red
     Write-Host "" -ForegroundColor Red
     
-    # Check if it was a timeout error (convert to string if needed)
+    # Check if it was a timeout or 403 error (convert to string if needed)
     $downloadOutputString = if ($null -ne $downloadOutput) {
         if ($downloadOutput -is [string]) { 
             $downloadOutput 
@@ -144,7 +162,20 @@ if ($fileSize -eq 0) {
         ""
     }
     
-    if ($downloadOutputString -match "522|timeout|Gave up retrying") {
+    if ($downloadOutputString -match "403|Forbidden") {
+        Write-Host "  ✗ HTTP 403 Forbidden - Shamela is blocking the request" -ForegroundColor Red
+        Write-Host "" -ForegroundColor Yellow
+        Write-Host "  This usually means:" -ForegroundColor Yellow
+        Write-Host "    - Anti-bot protection (Cloudflare) is blocking the crawler" -ForegroundColor Yellow
+        Write-Host "    - Rate limiting - too many requests too quickly" -ForegroundColor Yellow
+        Write-Host "    - The book might require authentication or be protected" -ForegroundColor Yellow
+        Write-Host "" -ForegroundColor Yellow
+        Write-Host "  Solutions:" -ForegroundColor Cyan
+        Write-Host "    1. Wait 10-30 minutes before trying again" -ForegroundColor Cyan
+        Write-Host "    2. Try using a different network/VPN" -ForegroundColor Cyan
+        Write-Host "    3. Check if the book is publicly accessible at: https://shamela.ws/book/$BookId" -ForegroundColor Cyan
+        Write-Host "    4. Consider setting a proper USER_AGENT in scrapy settings" -ForegroundColor Cyan
+    } elseif ($downloadOutputString -match "522|timeout|Gave up retrying") {
         Write-Host "  The download failed due to a Cloudflare timeout (522 error)." -ForegroundColor Yellow
         Write-Host "  This means the book exists but the server is temporarily unavailable." -ForegroundColor Yellow
         Write-Host "" -ForegroundColor Yellow
