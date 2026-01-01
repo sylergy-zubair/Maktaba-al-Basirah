@@ -239,8 +239,7 @@ export default function Home() {
                   aria-label={`Read ${book.title}${book.author ? ` by ${book.author}` : ''}`}
                 >
                   <h3>{book.title}</h3>
-                  {book.author && <p>Author: {book.author}</p>}
-                  {book.description && <p>{book.description}</p>}
+                  {book.author && <p>{book.author}</p>}
                 </Link>
               </li>
             ))}
